@@ -61,6 +61,7 @@ router.patch('/tasks/:id', auth, async (req, res) => {
         }
         
         updates.forEach((param) => task[param] = req.body[param])
+        await task.save()
 
         res.send(task)
     } catch (e) {
